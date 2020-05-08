@@ -19,17 +19,19 @@ body{
 .question{
     font-size: 23px;
 }
-.ans{
-    list-style: none;
+.option{
+    /* list-style: none; */
+    display: flex;
+    flex-direction: column;
 }
-.ans li{
+.option span{
     padding: 8px 11px;
     margin: 6px 0;
     cursor: pointer;
     transition-property: background;
     transition-duration: .3s;
 }
-.ans li:hover{
+.option :hover {
     background:#eee;
 }
 .correct{
