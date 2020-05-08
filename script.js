@@ -21,13 +21,12 @@ Question.prototype.displayQuestion = function (){
         if (parseInt(picked) === correctAnsewer) {
             adCorrectColor.classList.add("correct")
         }else if(parseInt(picked) !== correctAnsewer){
-            adCorrectColor.classList.add('wrong');
-            
+            adCorrectColor.classList.add('wrong'); 
         }
 
     }
 
-
+    domAnswers.innerHTML = "";
     //Display answers
    for (let i =0; i < this.answers.length; i++){
     const span = document.createElement('span');
@@ -57,12 +56,11 @@ let tab = 0;
 
 questions[tab].displayQuestion();
 btn.addEventListener('click', function(){
+    // tab = 1;
     questions.forEach((item, indx)=>{
-        tab = 1;
-
         if(indx == tab){
             item.displayQuestion()
-            // domQuestion.innerHTML = "";
+            console.log(indx, tab)
             return 
         }
     })
