@@ -4,6 +4,7 @@ const domAnswers = document.querySelector('.option');
 const btn = document.querySelector('.btn');
 const countScore =  document.querySelector('.scoreCount');
 const countQuestion = document.querySelector('.questionCount');
+const submit = document.querySelector('.submit');
 let score = [];
 
 
@@ -24,6 +25,11 @@ Question.prototype.displayQuestion = function (){
         if (parseInt(picked) === correctAnsewer) {
             score.push(parseInt(picked)),
             countScore.lastElementChild.innerHTML = score.length;
+            submit.addEventListener('click', function () {
+                document.querySelector('.wrapper').style.display = "none"
+                document.querySelector('.result').style.display = "flex"
+               document.querySelector('.showScore').lastElementChild.innerHTML = score.length
+            })
             adCorrectColor.classList.add("correct")
         }else if(parseInt(picked) !== correctAnsewer){
             adCorrectColor.classList.add('wrong'); 
@@ -76,14 +82,16 @@ btn.addEventListener('click', function(){
         if(indx == tab){
             item.displayQuestion()
             countQuestion.lastElementChild.innerHTML = indx
-            console.log(indx, tab)
+            // console.log(indx, tab)
             return 
         }
     })
     tab += 1;
 
     if(tab == questions.length){
-       btn.innerHTML = "Submit"
-       return
+       btn.style.display = "none"
+        submit.style.display = "block";
     }
 })
+
+

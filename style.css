@@ -57,3 +57,26 @@ body{
 .plc{
     width:50%;
 }
+.submit{
+    padding : 7px 42px;
+    border : none;
+    background : limegreen;
+    color : #fff;
+    font-size : 19px;
+    font-weight : 600;
+    cursor: pointer;
+    display: none;
+
+}
+
+.result {
+    padding : 20px 30px;
+    width : 50%;
+    display:none;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.result__head{
+    font-size : 40px;
+}
