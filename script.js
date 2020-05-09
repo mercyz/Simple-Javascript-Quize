@@ -2,6 +2,8 @@
 const domQuestion = document.querySelector('.question');
 const domAnswers = document.querySelector('.option');
 const btn = document.querySelector('.btn');
+const countScore =  document.querySelector('.scoreCount');
+let score = [];
 
 
 function Question(question, answers, correct){
@@ -13,12 +15,14 @@ function Question(question, answers, correct){
 Question.prototype.displayQuestion = function (){
     domQuestion.innerHTML = this.question;
     const correctAnsewer = this.correct;
-
+    
     //check correct answer
     const getCorrectAns = function(ans){
         let picked = ans.target.getAttribute('data-index')
         let adCorrectColor = ans.target;
         if (parseInt(picked) === correctAnsewer) {
+            score.push(parseInt(picked)),
+            countScore.lastElementChild.innerHTML = score.length;
             adCorrectColor.classList.add("correct")
         }else if(parseInt(picked) !== correctAnsewer){
             adCorrectColor.classList.add('wrong'); 
@@ -26,8 +30,8 @@ Question.prototype.displayQuestion = function (){
 
     }
 
-    domAnswers.innerHTML = "";
     //Display answers
+    domAnswers.innerHTML = "";
    for (let i =0; i < this.answers.length; i++){
     const span = document.createElement('span');
     let data_index = document.createAttribute("data-index");
@@ -38,6 +42,9 @@ Question.prototype.displayQuestion = function (){
     span.addEventListener('click', getCorrectAns)
    }
 }
+
+
+
 
 //Add Questions 
 let q1 = new Question('Is Javascript the coolest programming language',
@@ -56,7 +63,6 @@ let tab = 0;
 
 questions[tab].displayQuestion();
 btn.addEventListener('click', function(){
-    // tab = 1;
     questions.forEach((item, indx)=>{
         if(indx == tab){
             item.displayQuestion()
@@ -66,4 +72,3 @@ btn.addEventListener('click', function(){
     })
     tab += 1;
 })
-
