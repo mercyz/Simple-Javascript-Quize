@@ -33,7 +33,7 @@ Question.prototype.displayQuestion = function (){
 
     //Display answers
     domAnswers.innerHTML = "";
-   for (let i =0; i < this.answers.length; i++){
+   for (let i =1; i < this.answers.length; i++){
     const span = document.createElement('span');
     let data_index = document.createAttribute("data-index");
     data_index.value = i;
@@ -49,13 +49,13 @@ Question.prototype.displayQuestion = function (){
 
 //Add Question
 let q1 = new Question('Is Javascript the coolest programming language',
-    ['True', 'False', 'Maybe', 'Absolutly', 'Not Sure'], 0 
+    [null,'True', 'False', 'Maybe', 'Absolutly', 'Not Sure'], 1 
 );
 
-let q2 = new Question('Which is a Forntend programming language?', ['Javascript', 
-'PHP', 'SCSS', 'PYTHON', 'RUBY', 'C++', 'C#', 'JAVA'], 0);
+let q2 = new Question('Which is a Forntend programming language?', [null,'Javascript', 
+'PHP', 'SCSS', 'PYTHON', 'RUBY', 'C++', 'C#', 'JAVA'], 1);
 
-let q3 = new Question('Is Covid-19 a scam in this Country?', ['True', 'False'], 0);
+let q3 = new Question('Is Covid-19 a scam in this Country?', [null, 'True', 'False'], 1);
 
 let q4 = new Question('Tonye Be Encouraged, you\'ve gone too far to quit ', ['Don\'t Quit Keep Pushing'], 0);
 
@@ -79,4 +79,9 @@ btn.addEventListener('click', function(){
         }
     })
     tab += 1;
+
+    if(tab == questions.length){
+       btn.innerHTML = "Submit"
+       return
+    }
 })
