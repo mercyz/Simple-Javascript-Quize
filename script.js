@@ -59,8 +59,10 @@ let q3 = new Question('Is Covid-19 a scam in this Country?', [null, 'True', 'Fal
 
 let q4 = new Question('Tonye Be Encouraged, you\'ve gone too far to quit ', ['Don\'t Quit Keep Pushing'], 0);
 
+let q5 = new Question('Tonye Be Encouraged, you\'ve gone too far to quit ', ['Don\'t Quit Keep Pushing'], 0);
 
-let questions = [null, q1, q2, q3, q4];
+
+let questions = [null, q1, q2, q3, q4, q5];
 // questions.slice(1);
 console.log(questions)
 
