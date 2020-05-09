@@ -3,6 +3,7 @@ const domQuestion = document.querySelector('.question');
 const domAnswers = document.querySelector('.option');
 const btn = document.querySelector('.btn');
 const countScore =  document.querySelector('.scoreCount');
+const countQuestion = document.querySelector('.questionCount');
 let score = [];
 
 
@@ -47,6 +48,10 @@ Question.prototype.displayQuestion = function (){
 
 
 //Add Questions 
+
+let q0 = new Question('Is Javascript the coolest programming language',
+    ['True', 'False', 'Maybe', 'Absolutly', 'Not Sure'], 0
+);
 let q1 = new Question('Is Javascript the coolest programming language',
     ['True', 'False', 'Maybe', 'Absolutly', 'Not Sure'], 0 
 );
@@ -57,15 +62,20 @@ let q2 = new Question('Which is a Forntend programming language?', ['Javascript'
 let q3 = new Question('Is Covid-19 a scam in this Country?', ['True', 'False'], 0);
 
 
-let questions = [q1, q2, q3];
+let questions = [null, q1, q2, q3];
+// questions.slice(1);
+console.log(questions)
 
-let tab = 0;
+let tab = 1;
 
-questions[tab].displayQuestion();
+// questions[tab].displayQuestion();
 btn.addEventListener('click', function(){
+
+    btn.innerHTML ="Next";
     questions.forEach((item, indx)=>{
         if(indx == tab){
             item.displayQuestion()
+            countQuestion.lastElementChild.innerHTML = indx
             console.log(indx, tab)
             return 
         }
